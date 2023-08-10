@@ -4,8 +4,6 @@
   * [User Goals](#user-goals)
   * [User Stories](#user-stories)
   * [Site owner Goals](#site-owner-goals)
-    * [Requirements](#requirements)
-    * [Expectations](#expectations)
   * [Design Choices](#design-choices)
     * [Font](#font)
     * [Icons](#icons)
@@ -29,10 +27,22 @@ The primary goal of the Redo project is to create a user-friendly and intuitive 
 * Search Functionality: Provide a convenient search bar to facilitate quick access to posts and user profiles.
 * User-Friendly Experience: Design a visually appealing and responsive website for seamless usage across devices.
 ### User Goals
+Users of Redo aim to:
+
+* Post News: Share their own news articles, updates, and stories with the platform's community.
+* Discover News: Explore a variety of news articles on topics of interest from different sources.
+* Connect with Others: Interact with fellow users by commenting on posts, liking content, and sharing articles.
+* Search Bar: Easily search for specific posts or user profiles using the integrated search bar.
 ### User Stories
+* As a user who wants to share news, I want to create an account, log in, and post my news articles to share them with the community.
+* As a user looking to connect, I want to leave comments on posts that resonate with me and follow other users whose content I find valuable.
+* As a user in search of specific information, I want to use the search bar to quickly find posts related to particular topics or from specific users.
+* As a user interested in current events, I want to scroll through a feed of diverse news articles and click on ones that intrigue me for more details.
 ### Site owner Goals
-#### Requirements
-#### Expectations
+* Keep users interested: Make a fun platform where people enjoy spending time and talking to each other.
+* Share good stuff: Put up news that's really good and interesting to lots of different people.
+* Get more friends: Help the community grow by getting more people to join and take part.
+* Make people happy: Keep making the site better based on what people say, so they like using it.
 ### Design Choices
 #### Font
  [Open Sans](https://fonts.google.com/specimen/Open+Sans) is a clean and modern font that's perfect for any website. It's easy to read on screens of all sizes, making it ideal for web and mobile use.
