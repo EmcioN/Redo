@@ -1,3 +1,4 @@
+# Redo - News Sharing Platform
 ## Table of Contents
 [UX](#ux)
   * [Goal for the Project](#goal-for-the-project)
@@ -108,5 +109,43 @@ The Redo project is committed to continuous improvement and growth. Future enhan
 * [JSHint](https://jshint.com/) - Used to test my java script if there is any mistakes.
 ### Testing
 ### Deployment
+* Log in to Heroku or create a new account.
+* Click the New button in the top right corner and select Create New App.
+
+![step](/doc/images/step1.png)
+
+* Choose a unique name for your app and select the region you want it to run in, then click Create App.
+
+![step](/doc/images/step2.png)
+
+* Go to the Deploy tab and click on the Settings tab.
+
+![step](/doc/images/step3.png)
+
+* Scroll down to the Buildpack section and click Add Buildpack.
+
+![step](/doc/images/step4.png)
+
+* Select "python" and click Save Changes.
+* Repeat step and add "node.js" as well.
+* Make sure the Buildpacks are in the correct order by clicking and dragging them if necessary.
+
+![step](/doc/images/step5.png)
+
+* Go back to the top of the page and select the Deploy tab again.
+
+![step](/doc/images/step6.png)
+
+* Choose Github as the deployment method and confirm that you want to connect to your Github account.
+
+![step](/doc/images/step7.png)
+
+* Search for your repository name and click the connect button.
+* Scroll to the bottom of the deploy page and select your preferred deployment type.
+* You can choose to enable automatic deploys for automatic deployment when you push updates to Github.
+
+![step](/doc/images/step8.png)
+
+* That's it, your site should now be deployed!
 ### Credits 
 #### For help, advice and insperation
