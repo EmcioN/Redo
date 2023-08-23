@@ -7,34 +7,72 @@
     <meta name="description" content="Place where you can share your news with others">
     <meta name="keywords" content="Redo news, Redo posts">
     <title>Redo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <div class="navbar">
-          <a href="#" class="logo">Redo News Sharing</a>
-          <input type="text" class="search-bar" placeholder="Search...">
-          <a href="#" class="profile-link">Your Profile</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Redo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">            
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Write Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Create Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+          
         </div>
-    </nav>    
-    <h1>Create a Post</h1>
-    <form id="postForm">
-        <div>
-        <label for="title">Title:</label>
-        <input type="text" id="title" required>
+      </nav>
+      
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Post Title</h5>
+                <p class="card-text">
+                    Ben Stiller, Jack Black and Robert Downey Jr. lead an ensemble cast in 'Tropic Thunder,
+                    ' an action comedy about a group of self-absorbed actors who set out to make the most 
+                    expensive war film. After ballooning costs force the studio to cancel the movie, the 
+                    frustrated director refuses to stop shooting, leading his cast into the jungles of Southeast Asia,
+                     where they encounter real bad guys.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sidebar</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>        
-        <label for="content">Content:</label>
-        <textarea id="content" required></textarea>
-        </div>        
-        <button type="submit">Post</button>
-        
-    </form>
-    <footer>
-        <p>Redo. Share with us!</p>    
-    </footer>
-
-    <script src="script.js"></script> 
+      </div>
+      
+      <footer class="bg-dark text-light text-center py-3">
+        <p>Redo</p>
+      </footer>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       
 </body>
 </html>
