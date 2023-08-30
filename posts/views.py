@@ -27,9 +27,8 @@ def create_post(request):
         form = PostForm()
     return render(request, 'posts/create_post.html', {'form': form})  
 
-def home(request):
-    posts = Post.objects.all().order_by('-created_at')
-    return render(request, 'accounts/index.html', {'posts': posts})
+
 
 def create_popup(request):
-    return render(request, 'popup.html')    
+    return render(request, 'popup.html')
+

@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Redo</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Redo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,16 +39,17 @@
           
         </div>
       </nav>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h5 class="card-title">Login</h5>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-dark">Log in</button>
-                    </form>
-                </div>
-            </div>     
+
+      <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Register</h5>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-dark">Register</button>
+            </form>
+        </div>
+      </div>
       
       <footer class="bg-dark text-light text-center py-3">
         <p>Redo</p>
