@@ -29,8 +29,9 @@ urlpatterns = [
     path('register/', accounts_views.register, name='register'),  
     path('login/', accounts_views.user_login, name='login'),
     path('logout/', accounts_views.user_logout, name='logout'),
-    path('posts/', include('posts.urls')),
-]
+    path('posts/', include('posts.urls')),    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

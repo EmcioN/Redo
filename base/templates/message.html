@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container mt-5 col-lg-10 mx-auto">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h2>Authentication Required</h2>
+        </div>
+        <div class="card-body bg-light text-dark">
+            <p class="lead">You need to be logged in to do this.</p>
+            <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Create Account</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

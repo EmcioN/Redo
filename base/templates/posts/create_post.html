@@ -47,14 +47,14 @@
             </div>
         </div>
         <div class="card-body bg-light text-dark"> 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-dark btn-sm">Create Post</button>
             </form>
         </div>
         <div class="card-footer bg-secondary text-white"> 
-            <a href="#" class="text-muted d-block text-decoration-none">Looking for inspiration? Check out latest posts!</a>
+            <a href="{% url 'home' %}" class="text-muted d-block text-decoration-none">Looking for inspiration? Check out latest posts!</a>
         </div>
     </div>
   </div>
