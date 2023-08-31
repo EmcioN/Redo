@@ -49,45 +49,29 @@
       </nav>
       <div class="container mt-5">
         <ul class="list-group">
+          {% block content %}
           {% for post in posts %}
-          <li class="list-group-item mb-3">
-            <div class="d-flex justify-content-between align-items-start"> <!-- Flex container -->
-              <h2 class="h4 mb-2">{{ post.title }}</h2>
-              <small class="text-muted">{{ post.created_at }}</small>
-            </div>
-            <p class="mb-1">{{ post.content }}</p>
-            <small class="text-muted">By {{ post.author.username }}</small>
+          <li class="list-group-item mb-3 p-0"> 
+              <div class="card border-0"> 
+                  <div class="card-header bg-dark text-white"> 
+                      <div class="d-flex justify-content-between align-items-start">
+                          <h2 class="h4 mb-0">{{ post.title }}</h2>
+                          <small class="text-light">{{ post.created_at }}</small> 
+                      </div>
+                  </div>
+                  <div class="card-body bg-light text-dark">
+                      <p class="mb-1">{{ post.content }}</p>                    
+                      <a href="{% url 'post_detail' post_id=post.id %}" class="btn btn-dark btn-sm">Show More</a>
+                  </div>            
+                  <div class="card-footer bg-secondary text-white"> 
+                      <a href="#" class="text-muted d-block text-decoration-none">By {{ post.author.username }}</a>
+                  </div>
+              </div>
           </li>
-          {% endfor %}
+      {% endfor %}
+      {% endblock %}
         </ul>
-      </div>
-      <div class="container mt-4">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Post Title</h5>
-                <p class="card-text">
-                    Ben Stiller, Jack Black and Robert Downey Jr. lead an ensemble cast in 'Tropic Thunder,
-                    ' an action comedy about a group of self-absorbed actors who set out to make the most 
-                    expensive war film. After ballooning costs force the studio to cancel the movie, the 
-                    frustrated director refuses to stop shooting, leading his cast into the jungles of Southeast Asia,
-                     where they encounter real bad guys.</p>
-                <a href="#" class="btn btn-dark">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Sidebar</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+      </div>            
       <footer class="bg-dark text-light text-center py-3">
         <p>Redo</p>
       </footer>

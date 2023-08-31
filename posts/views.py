@@ -4,6 +4,7 @@ from .models import Post
 from .forms import PostForm
 from django.contrib import messages
 from functools import wraps
+from django.shortcuts import get_object_or_404
 
 def custom_login_required(view_func):
     @wraps(view_func)
@@ -28,6 +29,10 @@ def create_post(request):
     return render(request, 'posts/create_post.html', {'form': form})  
 
 
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    print(post)
+    return render(request, 'posts/post_detail.html', {'post': post})
 
 def create_popup(request):
     return render(request, 'popup.html')
