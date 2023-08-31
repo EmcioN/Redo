@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container mt-5 col-lg-10 mx-auto">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h2>Profile Not Found</h2>
+        </div>
+        <div class="card-body bg-light text-dark">
+            <p class="lead">Sorry, the profile you're looking for does not exist.</p>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Go Back to Home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

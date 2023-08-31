@@ -22,6 +22,7 @@ from django.views.generic import TemplateView
 from accounts import views as accounts_views
 from posts import views as posts_views
 from base.views import homepage
+from accounts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +30,9 @@ urlpatterns = [
     path('register/', accounts_views.register, name='register'),  
     path('login/', accounts_views.user_login, name='login'),
     path('logout/', accounts_views.user_logout, name='logout'),
-    path('posts/', include('posts.urls')),    
+    path('posts/', include('posts.urls')),
+    path('profile/', views.profile, name='profile'),
+    path('does-not-exist/', TemplateView.as_view(template_name="does_not_exist.html"), name='does_not_exist'),    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
