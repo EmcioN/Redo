@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from posts.models import Post
+from accounts.models import Profile
+from django.db.models import Q
+
 
 def homepage(request):
     posts = Post.objects.all()    
@@ -7,3 +10,4 @@ def homepage(request):
         'posts': posts
     }    
     return render(request, 'index.html', context)
+

@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Search Results for: "{{ query }}"</h2>
+    
+    {% if posts %}
+    <h4>Posts:</h4>    
+    {% for post in posts %}
+              <li class="list-group-item mb-3 p-3"> 
+                  <div class="card border-0"> 
+                      <div class="card-header bg-dark text-white"> 
+                          <div class="d-flex justify-content-between align-items-start">
+                              <h2 class="h4 mb-0">{{ post.title }}</h2>
+                              <small class="text-light">{{ post.created_at }}</small> 
+                          </div>
+                      </div>
+                      <div class="card-body bg-light text-dark">  
+  
+                          {% if post.image %}
+                              <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid mb-3"> 
+                          {% endif %}
+  
+                          <p class="mb-1">{{ post.content|truncatechars:100 }}</p>                    
+                          <a href="{% url 'post_detail' post_id=post.id %}" class="btn btn-dark btn-sm">Show More</a>
+                      </div>            
+                      <div class="card-footer bg-secondary text-white"> 
+                          <a href="{% url 'profile' user_id=post.author.id %}" class="text-muted d-block text-decoration-none">By {{ post.author.username }}</a>
+                      </div>
+                  </div>
+              </li>
+    {% endfor %}
+    {% endif %}
+    
+    {% if users %}
+    <h4>Users:</h4>    
+    {% for user in users %}
+    <a href="{% url 'profile' user_id=user.user.id %}">{{ user.user.username }}</a>
+    {% endfor %}
+    {% endif %}
+
+    {% if not posts and not users %}
+    <p>No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

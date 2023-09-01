@@ -7,6 +7,9 @@ from django.contrib import messages
 from .models import Profile
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from posts.models import Post
+from django.db.models import Q
+
 
 def register(request):
     if request.method == 'POST':
@@ -72,3 +75,26 @@ def profile(request, user_id):
         'user_posts': user_posts
     }
     return render(request, 'profile.html', context)
+
+def search(request):
+    query = request.GET.get('q')
+    posts = []
+    users = []
+
+    if query:
+        posts = Post.objects.filter(
+            Q(title__icontains=query) | 
+            Q(content__icontains=query)            
+        )
+
+        users = Profile.objects.filter(
+            Q(user__username__icontains=query)
+        )
+
+    context = {
+        'posts': posts,
+        'users': users,
+        'query': query
+    }
+
+    return render(request, 'search_results.html', context)        

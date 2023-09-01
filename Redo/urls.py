@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from accounts import views as accounts_views
 from posts import views as posts_views
-from base.views import homepage
+from base.views import homepage, search
 from accounts import views
 
 urlpatterns = [
@@ -33,6 +33,7 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('profile/<int:user_id>/', views.profile, name='profile'),
     path('profile/edit/', views.edit_profile, name='edit_profile'),
+    path('search/', views.search, name='search'),
     path('does-not-exist/', TemplateView.as_view(template_name="does_not_exist.html"), name='does_not_exist'),    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
