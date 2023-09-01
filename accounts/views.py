@@ -97,4 +97,4 @@ def search(request):
         'query': query
     }
 
-    return render(request, 'search_results.html', context)        
+    return render(request, 'search_results.html', context)            
