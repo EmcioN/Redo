@@ -4,14 +4,21 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
+from .models import Profile
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()            
+            user = form.save()
+            Profile.objects.create(user=user)            
             login(request, user)
             return redirect('home')
+        else:
+            for error in form.errors:
+                print(error)
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
@@ -31,27 +38,37 @@ def user_logout(request):
     logout(request)
     return redirect('home')  
 
-def profile(request):    
+def edit_profile(request):
     if not hasattr(request.user, 'profile'):
-        messages.error(request, 'Profile does not exist.')
-        return redirect('does_not_exist')  # Redirect to a suitable page    
+        Profile.objects.create(user=request.user)
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)        
-        
+        u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        
+
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            return redirect('profile')
+            return redirect('profile', user_id=request.user.id)
+
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-        
-    user_posts = request.user.post_set.all()
+
+    
     context = {
         'u_form': u_form,
         'p_form': p_form,
+        
+    }
+
+    return render(request, 'edit_profile.html', context)
+
+@login_required
+def profile(request, user_id):
+    profile_user = get_object_or_404(User, pk=user_id)
+    user_posts = profile_user.post_set.all()  
+    context = {
+        'profile_user': profile_user,
         'user_posts': user_posts
     }
     return render(request, 'profile.html', context)

@@ -16,7 +16,7 @@
             <p>{{ post.content }}</p>
         </div>
         <div class="card-footer bg-secondary text-white">
-            <a href="#" class="text-muted text-decoration-none">By {{ post.author.username }}</a>
+            <a href="{% url 'profile' user_id=post.author.id %}" class="text-muted text-decoration-none">By {{ post.author.username }}</a>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                         <p class="mb-0">{{ comment.content }}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        Commented by {{ comment.author.username }} on {{ comment.created_at|date:"Y-m-d" }}
+                        Commented by <a href="{% url 'profile' user_id=comment.author.id %}">{{ comment.author.username }}</a> on {{ comment.created_at|date:"Y-m-d" }}
                     </div>
                 </div>
             {% endfor %}

@@ -31,7 +31,8 @@ urlpatterns = [
     path('login/', accounts_views.user_login, name='login'),
     path('logout/', accounts_views.user_logout, name='logout'),
     path('posts/', include('posts.urls')),
-    path('profile/', views.profile, name='profile'),
+    path('profile/<int:user_id>/', views.profile, name='profile'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
     path('does-not-exist/', TemplateView.as_view(template_name="does_not_exist.html"), name='does_not_exist'),    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
