@@ -159,6 +159,20 @@ The Redo project is committed to continuous improvement and growth. Future enhan
 * [Heroku](https://www.heroku.com) - Deployment of website.
 ### Testing
 ### Deployment
+
+Local Development
+
+* Go to Github repo [here](https://github.com/EmcioN/Redo) 
+press **< CODE >**, and press COPY.
+or **FORK** my repo
+
+![clone](/doc/images/clonefork.png)
+
+* Go to your github repositories and create new repo, call it whatever you like. Press Create Repository it will lead you to another page, and press Gitpod it should open workspace for you
+* Now you need to download all libraries and frameworks used in this project. Use command : 
+```
+pip3 install -r requirements.txt
+```
 * Log in to Heroku or create a new account.
 * Click the New button in the top right corner and select Create New App.
 
