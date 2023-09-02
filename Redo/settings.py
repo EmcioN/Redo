@@ -179,4 +179,4 @@ AWS_QUERYSTRING_AUTH = False
 
 # Media files: Uploaded by users (e.g., images)
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_STORAGE_BUCKET_NAME}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
