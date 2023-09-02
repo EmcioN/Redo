@@ -36,7 +36,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['8001-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['8001-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io', 'redo-posts-c5321326c2bf.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://8001-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
 
 # Application definition
