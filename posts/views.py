@@ -16,6 +16,7 @@ def custom_login_required(view_func):
         return view_func(request, *args, **kwargs)
     return _wrapped_view
 
+
 @custom_login_required
 def create_post(request):
     if request.method == 'POST':
@@ -24,10 +25,10 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('home')  
+            return redirect('home')
     else:
         form = PostForm()
-    return render(request, 'posts/create_post.html', {'form': form})  
+    return render(request, 'posts/create_post.html', {'form': form})
 
 
 def post_detail(request, post_id):
@@ -41,7 +42,7 @@ def post_detail(request, post_id):
             if request.user.is_authenticated:
                 comment = form.save(commit=False)
                 comment.post = post
-                comment.author = request.user  
+                comment.author = request.user
                 comment.save()
                 return redirect('post_detail', post_id=post_id)
             else:
@@ -51,5 +52,3 @@ def post_detail(request, post_id):
                 return render(request, 'message.html', context)
 
     return render(request, 'posts/post_detail.html', {'post': post, 'comments': comments, 'form': form})
-
-

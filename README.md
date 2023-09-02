@@ -131,11 +131,7 @@ Dark Themes:
 
 * Project utilizes a dark-themed color scheme inspired by Bootstrap's dark color palette
 ### Future Plans
-The Redo project is committed to continuous improvement and growth. Future enhancements may include:
-
-* Enhanced User Profiles: Adding additional customization options to user profiles to allow for more personalization.
-* Topic Categorization: Implementing a tagging system to categorize posts and enable users to filter content by topic.
-* Notification System: Introducing a notification system to alert users about interactions on their posts and updates from followed users.
+Unfortunately, I encountered many problems and did not have enough time to do what I planned at the beginning. Some things lack functionality. I'm not yet experienced enough to add new things to a project without errors or problems. Some issues took me longer than expected to resolve. I had a moment of panic. Then I started using various commands, which generated new unnecessary files. The project works but needs some improvements. The next thing I planned to add was a tag system. The next one was supposed to be the ability to upload videos. I planned to improve my profile editing. Unfortunately, it dawned on me too late how to do it
 ### Tehnologies used
 #### Languages 
 * [HTML](https://en.wikipedia.org/wiki/HTML5)
@@ -155,9 +151,31 @@ The Redo project is committed to continuous improvement and growth. Future enhan
 * [W3C HTML Validation Service](https://validator.w3.org/) - Used to test HTML.
 * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to test CSS.
 * [Devtools](https://developer.chrome.com/docs/devtools/#:~:text=Chrome%20DevTools%20is%20a%20set,you%20can%20open%20Chrome%20DevTools.) - I checked all the time how my code works and if there are any errors in console
-* [JSHint](https://jshint.com/) - Used to test my java script if there is any mistakes.
+* [CI Python](https://pep8ci.herokuapp.com/) - Used to test my python code if there is any mistakes.
 * [Heroku](https://www.heroku.com) - Deployment of website.
 ### Testing
+#### Html Validator
+* I had no major problems with html.I only had one problem. I inserted a li element into a div without ul. I fixed it quickly
+
+![html](/doc/images/htmltest.png)
+
+#### Css Validator 
+
+* I'm having problems with bootstrap. I read that these are not serious errors. Since everything works, I decided to focus on other things.
+
+![css](/doc/images/csstest.png)
+
+#### CI python Linter
+
+* Now the code seems ok chording to tests. Since a lot of things were done by trial and error, I know I was leaving unnecessary code. Unfortunately, I didn't have enough time to look through it all. The most important thing is that it works xD.
+
+![test](/doc/images/viewstest1.png)
+![test](/doc/images/viewstest2.png)
+![test](/doc/images/viewstest3.png)
+![test](/doc/images/modeltest1.png)
+![test](/doc/images/settingstest.png)
+#### Manual Testing 
+I tested the project on an ongoing basis. I made sure that all buttons work as they should. The links work properly. Creating an account/logging in works as it should. I use forms from django. I could have improved it a bit more, but unfortunately I didn't have enough time before I figured out how it all worked. Adding new posts or comments also works. You can edit your profile. When testing, everything seems to work fine
 ### Deployment
 
 Local Development
@@ -212,4 +230,14 @@ pip3 install -r requirements.txt
 
 * That's it, your site should now be deployed!
 ### Credits 
+[Code Institute](https://codeinstitute.net/ie/): A special acknowledgment to the Code Institute. Revisiting lessons there proved invaluable, reinforcing core concepts and strengthening my foundation.
+
+[YouTube Tutorials](https://www.youtube.com/): Many thanks to the numerous educators and developers on YouTube. Their shared knowledge and step-by-step tutorials provided clarity and depth to my understanding.
+
+[Stack Overflow](https://stackoverflow.co/): An essential resource during this journey. The community's expertise and shared experiences on Stack Overflow were immensely beneficial in navigating challenges and troubleshooting issues.
+
+Gratitude to all these resources for guiding me through this coding journey and for being reliable pillars of support.
 #### For help, advice and insperation
+Of course, the greatest support I received was from my mentor. Many thanks to him.
+
+[Simen Daehlin](https://github.com/Eventyret)

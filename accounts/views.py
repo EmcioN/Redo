@@ -17,7 +17,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             if not hasattr(user, 'profile'):
-                Profile.objects.create(user=user)                        
+                Profile.objects.create(user=user)
             login(request, user)
             return redirect('home')
         else:
@@ -27,20 +27,23 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
+
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  
+            return redirect('home')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
 
+
 def user_logout(request):
     logout(request)
-    return redirect('home')  
+    return redirect('home')
+
 
 def edit_profile(request):
     if not hasattr(request.user, 'profile'):
@@ -58,24 +61,24 @@ def edit_profile(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
-    
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        
     }
 
     return render(request, 'edit_profile.html', context)
 
+
 @login_required
 def profile(request, user_id):
     profile_user = get_object_or_404(User, pk=user_id)
-    user_posts = profile_user.post_set.all()  
+    user_posts = profile_user.post_set.all()
     context = {
         'profile_user': profile_user,
         'user_posts': user_posts
     }
     return render(request, 'profile.html', context)
+
 
 def search(request):
     query = request.GET.get('q')
@@ -84,8 +87,8 @@ def search(request):
 
     if query:
         posts = Post.objects.filter(
-            Q(title__icontains=query) | 
-            Q(content__icontains=query)            
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
         )
 
         users = Profile.objects.filter(

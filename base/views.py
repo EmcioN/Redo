@@ -5,11 +5,12 @@ from django.db.models import Q
 
 
 def homepage(request):
-    posts = Post.objects.all()    
+    posts = Post.objects.all()
     context = {
         'posts': posts
-    }    
+    }
     return render(request, 'index.html', context)
+
 
 def search(request):
     query = request.GET.get('q')
@@ -18,8 +19,8 @@ def search(request):
 
     if query:
         posts = Post.objects.filter(
-            Q(title__icontains=query) | 
-            Q(content__icontains=query)            
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
         )
 
         users = Profile.objects.filter(
@@ -32,4 +33,4 @@ def search(request):
         'query': query
     }
 
-    return render(request, 'search_results.html', context)        
+    return render(request, 'search_results.html', context)
