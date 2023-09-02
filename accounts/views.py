@@ -16,7 +16,8 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            Profile.objects.create(user=user)            
+            if not hasattr(user, 'profile'):
+                Profile.objects.create(user=user)                        
             login(request, user)
             return redirect('home')
         else:
@@ -97,4 +98,4 @@ def search(request):
         'query': query
     }
 
-    return render(request, 'search_results.html', context)            
+    return render(request, 'search_results.html', context)

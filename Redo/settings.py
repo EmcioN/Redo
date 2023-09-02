@@ -16,7 +16,7 @@ import dj_database_url
 from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 if os.path.exists(os.path.join(BASE_DIR, '.env')):
     with open(os.path.join(BASE_DIR, '.env')) as f:
@@ -36,8 +36,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['8000-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['8001-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8001-emcion-redo-knvxunuibmn.ws-eu104.gitpod.io']
 
 # Application definition
 
@@ -90,15 +90,15 @@ WSGI_APPLICATION = 'Redo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    }
+    'default': dj_database_url.config(default=os.environ.get('ELEPHANTSQL_URL'))
 }
 
 # Password validation
@@ -136,6 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -164,4 +165,3 @@ CKEDITOR_CONFIGS = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-django_heroku.settings(locals())
