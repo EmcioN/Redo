@@ -24,6 +24,7 @@ from posts import views as posts_views
 from base.views import homepage, search
 from accounts import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='home'),    
